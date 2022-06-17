@@ -20,17 +20,17 @@ city = "Delhi"
 
 def test_practice_form(first_fixture_part2):
     # form fields filling
-    browser.execute_script("document.querySelector(\"footer\").hidden = 'true';" +
-                           "document.querySelector(\"#fixedban\").hidden = 'true'")
+    browser.execute_script('''document.querySelector("footer").hidden = "true";
+                           document.querySelector("#fixedban").hidden = "true"''')
     browser.element('#firstName').should(be.blank).type(firstName)
     browser.element('#lastName').should(be.blank).type(lastName)
     browser.element('#userEmail').should(be.blank).type(email)
     browser.element(by.text(gender)).click()
     browser.element('#userNumber').should(be.blank).type(mobileNumber)
     browser.element('#dateOfBirthInput').click()
-    browser.element('.react-datepicker__year-select [value="' + birthYear + '"]').click()
-    browser.element('.react-datepicker__month-select [value="' + "11" + '"]').click()
-    browser.element('.react-datepicker__month .react-datepicker__week .react-datepicker__day--0' + birthDay + '').click()
+    browser.element(f'.react-datepicker__year-select [value="{birthYear}"]').click()
+    browser.element(f'.react-datepicker__month-select [value="{birthMonth}"]').click()
+    browser.element(f'.react-datepicker__month .react-datepicker__week .react-datepicker__day--0{birthDay}').click()
     for value in subjects:
         browser.element('#subjectsInput').click()
         browser.element('#subjectsInput').type(value).press_enter()

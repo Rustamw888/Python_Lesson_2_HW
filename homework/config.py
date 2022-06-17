@@ -11,6 +11,7 @@ def first_fixture_part1():
     browser.element('[name="q"]').should(be.blank).type('selene').press_enter()
     yield
     browser.close()
+    browser.quit()
     print("Домашняя работа часть 1 - завершена!")
 
 
@@ -21,4 +22,5 @@ def first_fixture_part2():
         .set_window_size(1920, 1080)
     yield
     browser.close()
+    browser.quit()
     print("Домашняя работа часть 2 - завершена!")
